@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Kit Comunicazione Campagna Carta d’Identità Elettronica</title>
+
+        <!-- Bootstrap Italia -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.18.1/dist/css/bootstrap-italia.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Lora:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Markdown parser -->
+        <script src="https://cdn.jsdelivr.net/npm/marked@18.0.3/lib/marked.umd.min.js"></script>
+
+        <style>
+            body {
+                background: #f5f7f9;
+            }
+
+            .markdown-content h1 {
+                margin-bottom: 2rem;
+            }
+
+            .markdown-content h2 {
+                margin-top: 3rem;
+                border-bottom: 1px solid #d9e3f2;
+                padding-bottom: 0.5rem;
+            }
+
+            .markdown-content ul {
+                margin-bottom: 2rem;
+            }
+
+            .markdown-content li {
+                margin-bottom: 0.5rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-5">
+                            <div id="content" class="markdown-content">
+                                Caricamento…
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            fetch("README.md")
+                .then((r) => r.text())
+                .then((md) => {
+                    document.getElementById("content").innerHTML =
+                        marked.parse(md);
+                });
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.18.1/dist/js/bootstrap-italia.bundle.min.js"></script>
+    </body>
+</html>
