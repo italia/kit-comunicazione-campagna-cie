@@ -27,6 +27,7 @@ jobs:
             ! -path './.git/*' \
             ! -path './.github/*' \
             ! -name 'index.html' \
+            ! -name 'README.md' \
             | sort \
             | sed 's#^\./##' \
             | awk '{print "<li><a href=\"" $0 "\">" $0 "</a></li>"}' >> index.html
